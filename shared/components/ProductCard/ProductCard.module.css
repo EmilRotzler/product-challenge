@@ -12,6 +12,10 @@
   @apply object-contain p-4;
 }
 
+.brand {
+  @apply -mb-1.5 text-xs font-medium uppercase tracking-wide text-muted;
+}
+
 .name {
   @apply text-[1.1375rem] font-medium text-foreground;
 }

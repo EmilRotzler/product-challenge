@@ -8,9 +8,23 @@ type PaginationProps = {
   totalPages: number;
   totalItems: number;
   itemsPerPage: number;
+  extraQuery?: string;
 };
 
-export function Pagination({ slug, currentPage, totalPages, totalItems, itemsPerPage }: PaginationProps) {
+function buildHref(slug: string, page: number, extraQuery?: string): string {
+  const params = new URLSearchParams(extraQuery);
+  params.set("page", String(page));
+  return `/categories/${slug}?${params.toString()}`;
+}
+
+export function Pagination({
+  slug,
+  currentPage,
+  totalPages,
+  totalItems,
+  itemsPerPage,
+  extraQuery,
+}: PaginationProps) {
   if (totalPages <= 1) {
     return null;
   }
@@ -25,13 +39,21 @@ export function Pagination({ slug, currentPage, totalPages, totalItems, itemsPer
         {rangeStart}–{rangeEnd} of {totalItems} products
       </p>
       <nav aria-label="Pagination" className={styles.nav}>
-        <ArrowLink slug={slug} page={1} disabled={currentPage === 1} label="First page" symbol="«" />
+        <ArrowLink
+          slug={slug}
+          page={1}
+          disabled={currentPage === 1}
+          label="First page"
+          symbol="«"
+          extraQuery={extraQuery}
+        />
         <ArrowLink
           slug={slug}
           page={currentPage - 1}
           disabled={currentPage === 1}
           label="Previous page"
           symbol="‹"
+          extraQuery={extraQuery}
         />
         {pages.map((page, index) =>
           page === "ellipsis" ? (
@@ -41,7 +63,7 @@ export function Pagination({ slug, currentPage, totalPages, totalItems, itemsPer
           ) : (
             <Link
               key={page}
-              href={`/categories/${slug}?page=${page}`}
+              href={buildHref(slug, page, extraQuery)}
               className={page === currentPage ? styles.linkActive : styles.link}
               aria-current={page === currentPage ? "page" : undefined}
             >
@@ -55,6 +77,7 @@ export function Pagination({ slug, currentPage, totalPages, totalItems, itemsPer
           disabled={currentPage === totalPages}
           label="Next page"
           symbol="›"
+          extraQuery={extraQuery}
         />
         <ArrowLink
           slug={slug}
@@ -62,6 +85,7 @@ export function Pagination({ slug, currentPage, totalPages, totalItems, itemsPer
           disabled={currentPage === totalPages}
           label="Last page"
           symbol="»"
+          extraQuery={extraQuery}
         />
       </nav>
     </div>
@@ -74,9 +98,10 @@ type ArrowLinkProps = {
   disabled: boolean;
   label: string;
   symbol: string;
+  extraQuery?: string;
 };
 
-function ArrowLink({ slug, page, disabled, label, symbol }: ArrowLinkProps) {
+function ArrowLink({ slug, page, disabled, label, symbol, extraQuery }: ArrowLinkProps) {
   if (disabled) {
     return (
       <span aria-hidden="true" className={styles.arrowDisabled}>
@@ -86,7 +111,7 @@ function ArrowLink({ slug, page, disabled, label, symbol }: ArrowLinkProps) {
   }
 
   return (
-    <Link href={`/categories/${slug}?page=${page}`} aria-label={label} className={styles.arrow}>
+    <Link href={buildHref(slug, page, extraQuery)} aria-label={label} className={styles.arrow}>
       {symbol}
     </Link>
   );

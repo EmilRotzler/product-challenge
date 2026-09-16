@@ -1,0 +1,17 @@
+@reference "../../../../app/globals.css";
+
+.toolbar {
+  @apply flex flex-wrap items-center justify-between gap-3;
+}
+
+.sortLabel {
+  @apply flex items-center gap-2 text-sm text-foreground;
+}
+
+.sortSelect {
+  @apply min-w-0 border border-black/10 bg-background px-2 py-1.5 text-sm text-foreground;
+}
+
+.filterButton {
+  @apply flex shrink-0 items-center gap-2 border border-black/10 bg-background px-4 py-1.5 text-sm font-medium text-foreground hover:bg-black/5;
+}

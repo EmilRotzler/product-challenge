@@ -4,11 +4,12 @@ import styles from "./ProductGrid.module.css";
 
 type ProductGridProps = {
   products: Product[];
+  emptyMessage?: string;
 };
 
-export function ProductGrid({ products }: ProductGridProps) {
+export function ProductGrid({ products, emptyMessage = "No products in this category yet." }: ProductGridProps) {
   if (products.length === 0) {
-    return <p className={styles.empty}>No products in this category yet.</p>;
+    return <p className={styles.empty}>{emptyMessage}</p>;
   }
 
   return (

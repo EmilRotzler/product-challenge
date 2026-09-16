@@ -6,3 +6,7 @@ const colors = colorsJson as unknown as Color[];
 export function getColorById(colorId: number): Color | undefined {
   return colors.find((color) => color.id === colorId);
 }
+
+export function getAllColors(): Color[] {
+  return colors;
+}

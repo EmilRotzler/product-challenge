@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getBrandById } from "@/shared/services/brands";
 import type { Product } from "@/shared/types/product";
 import styles from "./ProductCard.module.css";
 
@@ -8,6 +9,8 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product }: ProductCardProps) {
+  const brand = getBrandById(product.brandId);
+
   return (
     <Link href={`/product/${product.slug}`} className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -19,6 +22,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className={styles.image}
         />
       </div>
+      {brand ? <span className={styles.brand}>{brand.name}</span> : null}
       <span className={styles.name}>{product.name}</span>
       <span className={styles.price}>
         {product.onSale ? (

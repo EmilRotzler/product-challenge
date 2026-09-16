@@ -6,3 +6,7 @@ const sizes = sizesJson as unknown as Size[];
 export function getSizeById(sizeId: number): Size | undefined {
   return sizes.find((size) => size.id === sizeId);
 }
+
+export function getAllSizes(): Size[] {
+  return sizes;
+}
