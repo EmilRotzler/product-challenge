@@ -1,4 +1,4 @@
-export { Toolbar } from "./components/Toolbar";
+export { Toolbar } from "./components";
 export {
   parseFilterState,
   serializeFilterState,

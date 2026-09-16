@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "@/shared/components/Menu";
+import { Menu } from "@/shared/components/Menu/Menu";
 import styles from "./Header.module.css";
 
 export function Header() {

@@ -1,5 +1,5 @@
 import type { Product } from "@/shared/types/product";
-import { ProductCard } from "@/shared/components/ProductCard";
+import { ProductCard } from "@/shared/components/ProductCard/ProductCard";
 import styles from "./ProductGrid.module.css";
 
 type ProductGridProps = {

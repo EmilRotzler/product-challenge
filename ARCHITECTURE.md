@@ -57,11 +57,16 @@ files), while actual page content and cross-route UI live outside it, in
 > utility-class strings.
 
 > Convention: every component, in both `shared/components/` and a feature's
-> `components/`, gets its own folder: `ComponentName/ComponentName.tsx`,
-> `ComponentName/ComponentName.module.css`, and `ComponentName/index.ts`
-> re-exporting it (e.g. `shared/components/Header/`). This keeps a growing
-> `components/` directory scannable one component at a time instead of a flat
-> pile of `.tsx`/`.module.css` pairs.
+> `components/`, gets its own folder: `ComponentName/ComponentName.tsx` plus
+> `ComponentName/ComponentName.module.css` (e.g. `shared/components/Header/`).
+> This keeps a growing `components/` directory scannable one component at a
+> time instead of a flat pile of `.tsx`/`.module.css` pairs. Each `components/`
+> directory has a single barrel `index.ts` re-exporting every component in it
+> (e.g. `shared/components/index.ts`), rather than one `index.ts` per
+> component folder — one file to update per new component instead of one to
+> create. Imports between components in the same `components/` directory must
+> reference the sibling file directly (`../Menu/Menu`, not the barrel), to
+> avoid a circular import through that directory's own `index.ts`.
 
 Future routes (e.g. `/categories`, `/product`) follow the same pattern: a thin
 `app/<route>/page.tsx` renders a component from a matching `features/<route>/`

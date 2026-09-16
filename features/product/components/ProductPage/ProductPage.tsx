@@ -6,9 +6,9 @@ import { getColorById } from "@/shared/services/colors";
 import { getSizeById } from "@/shared/services/sizes";
 import { getAttributeById } from "@/shared/services/attributes";
 import { Breadcrumbs } from "@/features/categories";
-import { ImageCarousel } from "../ImageCarousel";
-import { ProductDetails } from "../ProductDetails";
-import { BuyBox } from "../BuyBox";
+import { ImageCarousel } from "../ImageCarousel/ImageCarousel";
+import { ProductDetails } from "../ProductDetails/ProductDetails";
+import { BuyBox } from "../BuyBox/BuyBox";
 import styles from "./ProductPage.module.css";
 
 type ProductPageProps = {

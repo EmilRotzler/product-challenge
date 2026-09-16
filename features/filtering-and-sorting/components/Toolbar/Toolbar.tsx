@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { FilterPanel } from "../FilterPanel";
+import { FilterPanel } from "../FilterPanel/FilterPanel";
 import type { FilterOptions } from "../../utils/getFilterOptions";
 import type { FilterState, SortOption } from "../../utils/query";
 import { SORT_OPTIONS } from "../../utils/query";

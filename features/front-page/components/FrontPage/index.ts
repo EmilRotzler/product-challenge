@@ -1,1 +1,0 @@
-export { FrontPage } from "./FrontPage";

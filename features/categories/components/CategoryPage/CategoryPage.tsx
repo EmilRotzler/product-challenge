@@ -10,7 +10,7 @@ import { getAllBrands } from "@/shared/services/brands";
 import { getAllColors } from "@/shared/services/colors";
 import { getAllSizes } from "@/shared/services/sizes";
 import { getAllAttributes } from "@/shared/services/attributes";
-import { ProductGrid } from "@/shared/components/ProductGrid";
+import { ProductGrid } from "@/shared/components";
 import {
   Toolbar,
   parseFilterState,
@@ -23,9 +23,9 @@ import {
   type SearchParams,
 } from "@/features/filtering-and-sorting";
 import { PRODUCTS_PER_PAGE, paginate } from "../../utils/paginate";
-import { Breadcrumbs } from "../Breadcrumbs";
-import { Pagination } from "../Pagination";
-import { SubcategoryLinks } from "../SubcategoryLinks";
+import { Breadcrumbs } from "../Breadcrumbs/Breadcrumbs";
+import { Pagination } from "../Pagination/Pagination";
+import { SubcategoryLinks } from "../SubcategoryLinks/SubcategoryLinks";
 import styles from "./CategoryPage.module.css";
 
 type CategoryPageProps = {
