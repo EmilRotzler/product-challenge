@@ -1,0 +1,13 @@
+@reference "../../../../app/globals.css";
+
+.nav {
+  @apply w-full;
+}
+
+.list {
+  @apply flex flex-wrap gap-2;
+}
+
+.link {
+  @apply rounded-full border border-black/10 px-3 py-1 text-sm text-foreground hover:border-primary hover:text-primary;
+}

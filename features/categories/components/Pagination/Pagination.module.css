@@ -1,0 +1,33 @@
+@reference "../../../../app/globals.css";
+
+.wrapper {
+  @apply flex flex-col items-center gap-2 pt-4;
+}
+
+.status {
+  @apply text-sm text-muted;
+}
+
+.nav {
+  @apply flex flex-wrap items-center justify-center gap-1;
+}
+
+.link {
+  @apply flex h-9 min-w-9 items-center justify-center px-2 text-sm text-foreground hover:bg-black/5;
+}
+
+.linkActive {
+  @apply flex h-9 min-w-9 items-center justify-center bg-primary px-2 text-sm font-semibold text-background;
+}
+
+.arrow {
+  @apply flex h-9 min-w-9 items-center justify-center px-2 text-sm text-foreground hover:bg-black/5;
+}
+
+.arrowDisabled {
+  @apply flex h-9 min-w-9 items-center justify-center px-2 text-sm text-muted opacity-40;
+}
+
+.ellipsis {
+  @apply flex h-9 min-w-9 items-center justify-center px-2 text-sm text-muted;
+}

@@ -18,25 +18,21 @@ files), while actual page content and cross-route UI live outside it, in
 │
 ├── features/                  # One folder per business domain
 │   ├── front-page/
-│   │   ├── components/        # components used only within this feature
+│   │   ├── components/        # one folder per component (see convention below)
 │   │   └── index.ts           # public exports for this feature
 │   │
-│   ├── categories/             # (not yet implemented)
-│   │   └── ...same shape
+│   ├── categories/
+│   │   ├── components/        # CategoryPage, SubcategoryLinks, Pagination
+│   │   ├── utils/              # feature-local helpers (e.g. paginate())
+│   │   └── index.ts
 │   │
 │   └── product/                # (not yet implemented)
 │       └── ...same shape
 │
 ├── shared/                    # Truly cross-feature code
-│   └── components/            # Header, Menu, and future shared UI
-│       ├── Header/
-│       │   ├── Header.tsx
-│       │   ├── Header.module.css
-│       │   └── index.ts
-│       └── Menu/
-│           ├── Menu.tsx
-│           ├── Menu.module.css
-│           └── index.ts
+│   ├── components/            # Header, Menu, ProductCard, ProductGrid, and future shared UI
+│   ├── services/               # data-fetching layer over data/*.json (categories, products)
+│   └── types/                  # shared TypeScript types for data/*.json shapes
 │
 ├── public/                    # Static assets served as-is
 ├── data/                      # JSON files acting as the data store (see Data Stores)
@@ -59,6 +55,13 @@ files), while actual page content and cross-route UI live outside it, in
 > CSS Modules with Tailwind's `@apply` (e.g. `Header.module.css`), referencing
 > `app/globals.css` via `@reference` for theme tokens, rather than long inline
 > utility-class strings.
+
+> Convention: every component, in both `shared/components/` and a feature's
+> `components/`, gets its own folder: `ComponentName/ComponentName.tsx`,
+> `ComponentName/ComponentName.module.css`, and `ComponentName/index.ts`
+> re-exporting it (e.g. `shared/components/Header/`). This keeps a growing
+> `components/` directory scannable one component at a time instead of a flat
+> pile of `.tsx`/`.module.css` pairs.
 
 Future routes (e.g. `/categories`, `/product`) follow the same pattern: a thin
 `app/<route>/page.tsx` renders a component from a matching `features/<route>/`

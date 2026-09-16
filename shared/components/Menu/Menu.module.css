@@ -1,13 +1,53 @@
 @reference "../../../app/globals.css";
 
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.backdrop {
+  @apply fixed inset-0 z-40 cursor-default border-0 bg-black/40 p-0;
+  animation: backdropFadeIn 200ms ease-out;
+}
+
 .menu {
-  @apply absolute left-0 top-full w-full border-b border-black/10 bg-background sm:w-56 sm:rounded-md sm:border sm:shadow-lg;
+  @apply fixed left-0 top-0 z-50 flex h-full w-[85vw] max-w-xs flex-col border-r border-black/10 bg-background shadow-lg;
+  animation: menuSlideIn 250ms ease-out;
+}
+
+.menuHeader {
+  @apply flex items-center justify-between border-b border-black/10 px-4 py-4;
+}
+
+.menuTitle {
+  @apply text-sm font-semibold text-foreground;
+}
+
+.close {
+  @apply relative flex h-8 w-8 items-center justify-center hover:bg-black/5;
+}
+
+.closeBar {
+  @apply absolute h-0.5 w-5 bg-foreground first:rotate-45 last:-rotate-45;
 }
 
 .list {
-  @apply flex flex-col p-2;
+  @apply flex flex-col overflow-y-auto p-2;
 }
 
 .link {
-  @apply block rounded px-3 py-2 text-foreground hover:text-primary;
+  @apply block px-3 py-2 text-foreground hover:text-primary;
 }

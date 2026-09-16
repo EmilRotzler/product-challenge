@@ -1,0 +1,13 @@
+@reference "../../../../app/globals.css";
+
+.main {
+  @apply mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 bg-background px-4 py-8 sm:px-6;
+}
+
+.heading {
+  @apply text-2xl font-semibold text-foreground sm:text-3xl;
+}
+
+.gridBleed {
+  @apply -mx-4 sm:-mx-6;
+}

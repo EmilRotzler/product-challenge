@@ -1,0 +1,49 @@
+@reference "../../../app/globals.css";
+
+.card {
+  @apply relative flex flex-col gap-2 bg-background p-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] transition-shadow duration-150 hover:z-10 hover:shadow-[0_0_0_1px_rgba(0,0,0,0.1),0_20px_25px_-5px_rgba(0,0,0,0.25),0_8px_10px_-6px_rgba(0,0,0,0.25)];
+}
+
+.imageWrapper {
+  @apply relative aspect-square w-full overflow-hidden bg-page-background;
+}
+
+.image {
+  @apply object-contain p-4;
+}
+
+.name {
+  @apply text-[1.1375rem] font-medium text-foreground;
+}
+
+.card:hover .name {
+  text-decoration: underline;
+}
+
+.price {
+  @apply flex items-baseline gap-2;
+}
+
+.priceRegular {
+  @apply text-sm font-semibold text-foreground;
+}
+
+.priceStrikethrough {
+  @apply text-sm text-muted line-through;
+}
+
+.priceSale {
+  @apply text-sm font-semibold text-primary;
+}
+
+.stock {
+  @apply flex items-center gap-1.5 text-xs font-medium text-foreground;
+}
+
+.stockDotInStock {
+  @apply h-2 w-2 rounded-full bg-green-600;
+}
+
+.stockDotOutOfStock {
+  @apply h-2 w-2 rounded-full bg-red-600;
+}

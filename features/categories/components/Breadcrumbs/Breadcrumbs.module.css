@@ -1,0 +1,25 @@
+@reference "../../../../app/globals.css";
+
+.nav {
+  @apply w-full;
+}
+
+.list {
+  @apply flex flex-wrap items-center gap-1 text-sm text-muted;
+}
+
+.item {
+  @apply flex items-center gap-1;
+}
+
+.separator {
+  @apply text-muted;
+}
+
+.link {
+  @apply text-muted hover:text-primary;
+}
+
+.current {
+  @apply font-medium text-foreground;
+}
