@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Stationery",
+    "slug": "stationery",
+    "parentId": null
+  },
+  {
+    "id": 2,
+    "name": "Electronics",
+    "slug": "electronics",
+    "parentId": null
+  },
+  {
+    "id": 3,
+    "name": "Furniture",
+    "slug": "furniture",
+    "parentId": null
+  },
+  {
+    "id": 4,
+    "name": "Office Chairs",
+    "slug": "office-chairs",
+    "parentId": 3
+  }
+]

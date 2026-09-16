@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Material",
+    "type": "text"
+  },
+  {
+    "id": 2,
+    "name": "Weight (kg)",
+    "type": "number"
+  },
+  {
+    "id": 3,
+    "name": "Assembly Required",
+    "type": "boolean"
+  },
+  {
+    "id": 4,
+    "name": "Finish",
+    "type": "select",
+    "options": [
+      "Matte",
+      "Glossy",
+      "Satin"
+    ]
+  }
+]

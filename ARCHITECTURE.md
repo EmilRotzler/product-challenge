@@ -39,10 +39,19 @@ files), while actual page content and cross-route UI live outside it, in
 │           └── index.ts
 │
 ├── public/                    # Static assets served as-is
-└── data/                      # JSON files acting as the data store (see Data Stores)
-    ├── users.json
-    ├── products.json
-    └── orders.json
+├── data/                      # JSON files acting as the data store (see Data Stores)
+│   ├── categories.json
+│   ├── brands.json
+│   ├── colors.json
+│   ├── sizes.json
+│   ├── attributes.json
+│   ├── products.json
+│   ├── users.json             # (not yet implemented)
+│   └── orders.json            # (not yet implemented)
+└── scripts/
+    └── seed/
+        ├── generate-data.mjs   # deterministic generator for data/*.json
+        └── verify-data.mjs     # cross-validates data/*.json references
 
 > Note: Tailwind v4 keeps theme tokens (colors, fonts) directly in
 > `app/globals.css` via `@theme`, which is that version's idiomatic location —
@@ -67,4 +76,4 @@ Type: JSON object files (flat files on disk)
 
 Purpose: Stores all application data for the initial version. Chosen for simplicity while the project is early-stage. May be replaced with a proper database (e.g., PostgreSQL, MongoDB) in the future as needs grow.
 
-Key Schemas/Collections: [List important JSON files as they're introduced, e.g., users.json, products.json, orders.json]
+Key Schemas/Collections: categories.json, brands.json, colors.json, sizes.json, attributes.json, products.json, users.json, orders.json (users/orders not yet implemented)
