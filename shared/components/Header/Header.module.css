@@ -1,0 +1,25 @@
+@reference "../../../app/globals.css";
+
+.header {
+  @apply sticky top-0 z-50 border-b border-black/10 bg-background;
+}
+
+.inner {
+  @apply relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:px-6;
+}
+
+.logo {
+  @apply text-lg font-bold text-foreground hover:text-primary;
+}
+
+.toggle {
+  @apply flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded hover:bg-black/5;
+}
+
+.toggleBar {
+  @apply h-0.5 w-6 bg-foreground;
+}
+
+.cart {
+  @apply ml-auto flex h-10 w-10 items-center justify-center rounded hover:bg-black/5;
+}

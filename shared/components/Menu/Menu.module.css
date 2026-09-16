@@ -1,0 +1,13 @@
+@reference "../../../app/globals.css";
+
+.menu {
+  @apply absolute left-0 top-full w-full border-b border-black/10 bg-background sm:w-56 sm:rounded-md sm:border sm:shadow-lg;
+}
+
+.list {
+  @apply flex flex-col p-2;
+}
+
+.link {
+  @apply block rounded px-3 py-2 text-foreground hover:text-primary;
+}

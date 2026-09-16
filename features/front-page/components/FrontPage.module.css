@@ -1,0 +1,13 @@
+@reference "../../../app/globals.css";
+
+.main {
+  @apply mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-3 bg-background px-4 text-center;
+}
+
+.heading {
+  @apply text-3xl font-semibold text-foreground sm:text-4xl;
+}
+
+.subtext {
+  @apply max-w-md text-base text-muted;
+}

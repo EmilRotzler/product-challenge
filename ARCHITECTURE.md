@@ -4,58 +4,56 @@ This document serves as a critical, living template designed to equip agents wit
 ## 1. Project Structure
 This section provides a high-level overview of the project's directory and file structure, categorised by architectural layer or major functional area. It is essential for quickly navigating the codebase, locating relevant files, and understanding the overall organization and separation of concerns.
 
+This project uses Next.js (App Router), where routing is file-system based and
+must live under `app/`. The structure below adapts the original framework-agnostic
+plan to that constraint: `app/` is kept routing-only (thin `page.tsx`/`layout.tsx`
+files), while actual page content and cross-route UI live outside it, in
+`features/` and `shared/`.
+
 [Project Root]/
-├── app/                      # App-level setup
-│   ├── App.tsx
-│   ├── router.tsx
-│   ├── providers.tsx         # context providers, theme, etc.
-│   └── store.ts              # global state setup (if using Redux/Zustand)
+├── app/                       # Routing only (Next.js App Router)
+│   ├── layout.tsx             # Root layout: fonts, metadata, renders <Header />
+│   ├── page.tsx               # "/" route, renders features/front-page
+│   └── globals.css            # Tailwind v4 theme tokens + base styles
 │
-├── features/                 # One folder per business domain
+├── features/                  # One folder per business domain
 │   ├── front-page/
-│   │   ├── components/       # components used only within this feature
-│   │   ├── hooks/
-│   │   ├── api/              # feature-specific API calls
-│   │   ├── types.ts
-│   │   ├── utils.ts          # utils specific to this feature
-│   │   └── index.ts          # public exports for this feature
+│   │   ├── components/        # components used only within this feature
+│   │   └── index.ts           # public exports for this feature
 │   │
-│   ├── categories/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── api/
-│   │   ├── types.ts
-│   │   └── index.ts
+│   ├── categories/             # (not yet implemented)
+│   │   └── ...same shape
 │   │
-│   └── product/
+│   └── product/                # (not yet implemented)
 │       └── ...same shape
 │
-├── shared/                   # Truly cross-feature code
-│   ├── components/           # Button, Modal, Input, Card, etc.
-│   │   ├── Button/
-│   │   │   ├── Button.tsx
-│   │   │   ├── Button.test.tsx
-│   │   │   └── index.ts
-│   │   └── Modal/
-│   ├── hooks/                 # useDebounce, useLocalStorage, etc.
-│   ├── utils/                 # formatDate, currency helpers, etc.
-│   ├── types/                 # shared TS types/interfaces
-│   ├── constants/
-│   └── api/                   # base API client, interceptors, config
+├── shared/                    # Truly cross-feature code
+│   └── components/            # Header, Menu, and future shared UI
+│       ├── Header/
+│       │   ├── Header.tsx
+│       │   ├── Header.module.css
+│       │   └── index.ts
+│       └── Menu/
+│           ├── Menu.tsx
+│           ├── Menu.module.css
+│           └── index.ts
 │
-├── pages/ (or routes/)        # Thin route-level components
-│   ├── FrontPage.tsx
-│   ├── CategoriesPage.tsx
-│   └── ProductPage.tsx
-│
-├── styles/                    # global styles, theme tokens
-├── assets/                    # images, fonts, icons, etc.
-├── data/                      # JSON files acting as the data store (see Data Stores)
-│   ├── users.json
-│   ├── products.json
-│   └── orders.json
-│
-└── main.tsx
+├── public/                    # Static assets served as-is
+└── data/                      # JSON files acting as the data store (see Data Stores)
+    ├── users.json
+    ├── products.json
+    └── orders.json
+
+> Note: Tailwind v4 keeps theme tokens (colors, fonts) directly in
+> `app/globals.css` via `@theme`, which is that version's idiomatic location —
+> there is no separate top-level `styles/` folder. Component-level styling uses
+> CSS Modules with Tailwind's `@apply` (e.g. `Header.module.css`), referencing
+> `app/globals.css` via `@reference` for theme tokens, rather than long inline
+> utility-class strings.
+
+Future routes (e.g. `/categories`, `/product`) follow the same pattern: a thin
+`app/<route>/page.tsx` renders a component from a matching `features/<route>/`
+folder.
 
 # 2. Data Stores
 
