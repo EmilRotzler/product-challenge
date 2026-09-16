@@ -1,5 +1,27 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## About this project
+
+This product listing app was built in a single **4-hour time-boxed session** as a
+challenge submission. The goal wasn't just to ship features, but to demonstrate
+both **planning** and **productivity** under a tight deadline:
+
+- **Planning** — Before writing code, the project's structure and conventions
+  were laid out in [ARCHITECTURE.md](ARCHITECTURE.md), a living document that
+  defines the folder layout (`app/` for routing only, `features/` for
+  business domains, `shared/` for cross-feature code), component conventions,
+  and data storage approach. This let each feature slot into a predictable
+  structure instead of being figured out ad hoc.
+- **Productivity** — Within the 4-hour window, the app went from a blank
+  Next.js template to a working product catalog: category pages, a product
+  grid, individual product pages with full product information, and
+  filtering/sorting functionality (see the commit history for the
+  incremental build-out).
+
+Given the time constraint, some areas (e.g. users, orders, a real database)
+are intentionally left as "not yet implemented" — noted in
+[ARCHITECTURE.md](ARCHITECTURE.md) — rather than rushed or half-built.
+
 ## Getting Started
 
 First, run the development server:
