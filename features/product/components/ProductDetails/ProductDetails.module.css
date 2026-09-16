@@ -1,0 +1,33 @@
+@reference "../../../../app/globals.css";
+
+.details {
+  @apply flex flex-col gap-4;
+}
+
+.name {
+  @apply text-2xl font-semibold text-foreground sm:text-3xl;
+}
+
+.description {
+  @apply text-base text-foreground;
+}
+
+.specsHeading {
+  @apply border-t border-black/10 pt-4 text-lg font-semibold text-foreground;
+}
+
+.specs {
+  @apply flex flex-col gap-2;
+}
+
+.specRow {
+  @apply flex gap-2 text-sm;
+}
+
+.specLabel {
+  @apply w-32 shrink-0 font-medium text-muted;
+}
+
+.specValue {
+  @apply text-foreground;
+}

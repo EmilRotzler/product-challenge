@@ -13,6 +13,7 @@ type ProductBase = {
   brandId: number;
   colorId: number;
   sizeId: number;
+  description: string;
   customAttributes: CustomAttributeValue[];
 };
 

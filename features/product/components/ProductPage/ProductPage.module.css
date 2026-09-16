@@ -1,0 +1,17 @@
+@reference "../../../../app/globals.css";
+
+.main {
+  @apply mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 bg-background px-4 py-8 sm:px-6;
+}
+
+.layout {
+  @apply flex flex-col gap-8 lg:flex-row;
+}
+
+.primary {
+  @apply flex flex-col gap-8 lg:w-2/3;
+}
+
+.secondary {
+  @apply w-full lg:w-1/3;
+}

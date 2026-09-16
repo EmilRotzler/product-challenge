@@ -1,0 +1,41 @@
+@reference "../../../../app/globals.css";
+
+.box {
+  @apply sticky top-24 flex flex-col gap-4 bg-background p-4 shadow-[0_0_0_1px_rgba(0,0,0,0.1)];
+}
+
+.price {
+  @apply flex items-baseline gap-2;
+}
+
+.priceRegular {
+  @apply text-2xl font-semibold text-foreground;
+}
+
+.priceStrikethrough {
+  @apply text-base text-muted line-through;
+}
+
+.priceSale {
+  @apply text-2xl font-semibold text-primary;
+}
+
+.stock {
+  @apply flex items-center gap-1.5 text-sm font-medium text-foreground;
+}
+
+.stockDotInStock {
+  @apply h-2 w-2 rounded-full bg-green-600;
+}
+
+.stockDotOutOfStock {
+  @apply h-2 w-2 rounded-full bg-red-600;
+}
+
+.addToCart {
+  @apply bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-primary-hover;
+}
+
+.delivery {
+  @apply flex flex-col gap-1 border-t border-black/10 pt-4 text-sm text-muted;
+}

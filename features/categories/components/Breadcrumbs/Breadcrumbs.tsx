@@ -4,7 +4,7 @@ import styles from "./Breadcrumbs.module.css";
 
 type BreadcrumbsProps = {
   ancestors: Category[];
-  current: Category;
+  current: { name: string };
 };
 
 export function Breadcrumbs({ ancestors, current }: BreadcrumbsProps) {
