@@ -62,6 +62,27 @@ const attributes = [
   { id: ATTR_FINISH, name: "Finish", type: "select", options: ["Matte", "Glossy", "Satin"] },
 ];
 
+// --- Descriptions (deterministic lorem-ipsum-style body text) ---
+const LOREM_SENTENCES = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+  "Curabitur blandit tempus porttitor, nullam quis risus eget urna mollis.",
+  "Vestibulum id ligula porta felis euismod semper, praesent commodo cursus.",
+  "Etiam porta sem malesuada magna mollis euismod, donec ullamcorper nulla.",
+];
+
+function randomDescription() {
+  const count = randInt(3, 5);
+  const sentences = [];
+  for (let i = 0; i < count; i++) {
+    sentences.push(pick(LOREM_SENTENCES));
+  }
+  return sentences.join(" ");
+}
+
 let nextProductId = 1;
 function randomProductBase(name, categoryId) {
   const price = randInt(5, 500);
@@ -82,6 +103,7 @@ function randomProductBase(name, categoryId) {
     brandId: brand.id,
     colorId: color.id,
     sizeId: size.id,
+    description: randomDescription(),
     customAttributes: [],
   };
 }

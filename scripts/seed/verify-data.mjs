@@ -59,6 +59,7 @@ for (const p of products) {
   expect(colorIds.has(p.colorId), `product ${p.id} has unknown colorId ${p.colorId}`);
   expect(sizeIds.has(p.sizeId), `product ${p.id} has unknown sizeId ${p.sizeId}`);
   expect(p.onSale === (p.salePrice !== undefined), `product ${p.id} onSale/salePrice presence mismatch`);
+  expect(typeof p.description === "string" && p.description.length > 0, `product ${p.id} has an empty description`);
   for (const attr of p.customAttributes) {
     expect(attributeIds.has(attr.attributeId), `product ${p.id} references unknown attributeId ${attr.attributeId}`);
   }
